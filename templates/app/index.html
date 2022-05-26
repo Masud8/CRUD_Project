@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% extends "app/base.html" %}
+{% block body_block %}
+
+<h1> List of Musicians</h1>
+<ul>
+    {% if musician_list %}
+    {% for musician in musician_list %}
+    <li><a href="{% url 'app:album_list' artist_id=musician.id %}"> {{ musician.first_name }} {{ musician.last_name }} </a></li>
+    {% endfor %}
+    {% else %}
+    <h4> No musician in the list</h4>
+    {% endif %}
+
+</ul>
+{% endblock %}
+
+<!---
+{% load static %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{%static 'css/my_style.css' %}">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1> i am from index.html </h1>
+{{text_1}}
+
+<table border="1">
+    <tr>
+        <th> First_name</th>
+        <th> Last_name</th>
+        <th> Instrument</th>
+    </tr>
+    {% for row in musician %}
+    <tr>
+        <td>{{ row.first_name}}</td>
+        <td>{{ row.last_name}}</td>
+        <td>{{ row.instrument}}</td>
+    </tr>
+    {% endfor %}
+</table>
+ <img src="{% static ' image/1.jpg'%}">
+</body>
+</html>
+--->
